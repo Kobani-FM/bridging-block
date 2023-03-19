@@ -1,9 +1,6 @@
 package ca.sheridancollege.blockheads.bridgingblock.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +21,12 @@ public class Graduate {
     private String lastName;
     private String email;
     private Integer StudentID;
-    private String address; //0x35dE11e7B59f0C48a44CdcEfF6CFe8dF1053f3a2
+
+    @OneToOne
+    @JoinTable(name = "GRADUATE_WALLET",
+            joinColumns = @JoinColumn(name = "GRADUATE_ID"),
+            inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
+    private Wallet wallet;
 
 //    private Institution institution;
 

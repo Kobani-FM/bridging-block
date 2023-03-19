@@ -1,9 +1,6 @@
 package ca.sheridancollege.blockheads.bridgingblock.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,5 +18,11 @@ public class Requester {
     private Long id;
 
     private String name;
+
+    @OneToOne
+    @JoinTable(name = "REQUESTER_WALLET",
+            joinColumns = @JoinColumn(name = "REQUESTER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
+    private Wallet wallet;
 
 }

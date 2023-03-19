@@ -22,4 +22,11 @@ public class Institution {
     private InstitutionStatus status;
 
 
+    @OneToOne
+    @JoinTable(name = "INSTITUTION_WALLET",
+            joinColumns = @JoinColumn(name = "INSTITUTION_ID"),
+            inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
+    private Wallet wallet;
+
+
 }
