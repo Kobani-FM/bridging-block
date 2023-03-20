@@ -11,12 +11,19 @@ const MetaMaskDetector = () => {
         checkMetaMask();
     }, []);
 
+    const handleInstallMetaMask = () => {
+        window.open("https://metamask.io/download.html", "_blank");
+    };
+
     return (
         <div>
             {isMetaMaskInstalled ? (
                 <p>MetaMask is installed on this browser.</p>
             ) : (
-                <p>MetaMask is not installed on this browser.</p>
+                <div>
+                    <p>MetaMask is not installed on this browser.</p>
+                    <button onClick={handleInstallMetaMask}>Install MetaMask</button>
+                </div>
             )}
         </div>
     );
