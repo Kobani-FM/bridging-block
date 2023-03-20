@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -28,6 +30,11 @@ public class Graduate {
             inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
     private Wallet wallet;
 
-//    private Institution institution;
+
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="INSTITUTIONS_GRADUATES",
+            joinColumns=@JoinColumn(name="GRADUATE_ID"),
+            inverseJoinColumns=@JoinColumn(name="INSTITUTIONS_ID"))
+    private List<Institution> institutions;
 
 }
