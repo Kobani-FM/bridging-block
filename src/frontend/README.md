@@ -6,17 +6,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 To run the React App:
 
-1. Open your command prompt and navigate to the "frontend" directory of the project:
+Open your command prompt and navigate to the "frontend" directory of the project:
 
-### `cd (frontend directory path on you PC`
+### `cd (frontend directory path on you PC)`
 
-In the project directory, you can run:
-
-If the node_modules folder is not present in the "frontend" directory".
+If the node_modules folder is not present in the "frontend" directory.
 
 ### `npm install`
 
 Downloads the necessary dependencies for the project.\
+The "node_modules" directory should not be present in "frontend".
 
 ### `npm start`
 
