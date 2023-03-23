@@ -15,7 +15,7 @@ If the node_modules folder is not present in the "frontend" directory.
 ### `npm install`
 
 Downloads the necessary dependencies for the project.\
-The "node_modules" directory should not be present in "frontend".
+The "node_modules" directory should now be present in "frontend".
 
 ### `npm start`
 
