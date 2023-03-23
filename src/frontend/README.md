@@ -8,7 +8,7 @@ To run the React App:
 
 Open your command prompt and navigate to the "frontend" directory of the project:
 
-### `cd (frontend directory path on you PC)`
+### `cd (frontend directory path on your PC)`
 
 If the node_modules folder is not present in the "frontend" directory.
 
