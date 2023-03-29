@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import MetaMaskConnect from './MetaMaskConnect';
 function MetaMaskCheck() {
     const [isSupportedBrowser, setIsSupportedBrowser] = useState(false);
     const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
@@ -29,7 +29,7 @@ function MetaMaskCheck() {
         <div>
             {isSupportedBrowser ? (
                 isMetaMaskInstalled ? (
-                    <p>MetaMask is installed in your browser.</p>
+                    <MetaMaskConnect/>
                 ) : (
                     <div>
                         <p>MetaMask is not installed in your browser.</p>
