@@ -1,32 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-const MetaMaskDetector = () => {
+function MetaMaskCheck() {
+    const [isSupportedBrowser, setIsSupportedBrowser] = useState(false);
     const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
 
     useEffect(() => {
-        const checkMetaMask = async () => {
-            const isInstalled = typeof window.ethereum !== "undefined";
-            setIsMetaMaskInstalled(isInstalled);
-        };
-        checkMetaMask();
+        const userAgent = window.navigator.userAgent;
+        const isChrome = /Chrome/.test(userAgent) && /Google Inc/.test(navigator.vendor);
+        const isFirefox = typeof InstallTrigger !== 'undefined';
+        const isBrave = /Brave/.test(userAgent);
+        const isEdge = /Edg/.test(userAgent);
+        const isOpera = /OPR/.test(userAgent);
+
+        if (isChrome || isFirefox || isBrave || isEdge || isOpera) {
+            setIsSupportedBrowser(true);
+            const { ethereum } = window;
+            if (ethereum && ethereum.isMetaMask) {
+                setIsMetaMaskInstalled(true);
+            }
+        }
     }, []);
 
-    const handleInstallMetaMask = () => {
-        window.open("https://metamask.io/download.html", "_blank");
+    const handleDownloadMetaMask = () => {
+        window.open('https://metamask.io/');
     };
 
     return (
         <div>
-            {isMetaMaskInstalled ? (
-                <p>MetaMask is installed on this browser.</p>
+            {isSupportedBrowser ? (
+                isMetaMaskInstalled ? (
+                    <p>MetaMask is installed in your browser.</p>
+                ) : (
+                    <div>
+                        <p>MetaMask is not installed in your browser.</p>
+                        <button onClick={handleDownloadMetaMask}>Download MetaMask</button>
+                    </div>
+                )
             ) : (
-                <div>
-                    <p>MetaMask is not installed on this browser.</p>
-                    <button onClick={handleInstallMetaMask}>Install MetaMask</button>
-                </div>
+                <p>Your browser is not supported.</p>
             )}
         </div>
     );
-};
+}
 
-export default MetaMaskDetector;
+export default MetaMaskCheck;
