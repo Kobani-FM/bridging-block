@@ -1,5 +1,5 @@
 import './App.css';
-import MetaMaskDetector from "./components/metaMaskDetector";
+import MetaMaskDetector from "./components/MetaMaskDetector";
 
  const App = () =>
      (
