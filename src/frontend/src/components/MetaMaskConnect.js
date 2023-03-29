@@ -16,6 +16,13 @@ function MetaMaskConnect() {
                 const etherBalance = await web3.eth.getBalance(accounts[0]);
                 setBalance(web3.utils.fromWei(etherBalance, 'ether'));
                 setIsConnected(true);
+
+                // Add event listener for changes to accounts array
+                window.ethereum.on('accountsChanged', async (newAccounts) => {
+                    setAccount(newAccounts[0]);
+                    const etherBalance = await web3.eth.getBalance(newAccounts[0]);
+                    setBalance(web3.utils.fromWei(etherBalance, 'ether'));
+                });
             } catch (err) {
                 console.error(err);
             }
@@ -32,8 +39,10 @@ function MetaMaskConnect() {
         isConnected?
         <div>
             <h2>MetaMask Wallet Information</h2>
-            <p>Wallet Address: {account}</p>
-            <p>Balance: {balance} ETH</p>
+            <ul>
+                <li>Wallet Address: <strong>{account}</strong></li><br/>
+                <li>Balance: <strong>{balance} ETH</strong></li>
+            </ul>
         </div>
             :<p>MetaMask is not connected</p>
     );
