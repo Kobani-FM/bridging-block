@@ -4,6 +4,7 @@ import Web3 from 'web3';
 function MetaMaskConnect() {
     const [account, setAccount] = useState('');
     const [balance, setBalance] = useState('');
+    const [isConnected, setIsConnected] = useState(false);
 
     const connectToMetaMask = async () => {
         if (window.ethereum) {
@@ -14,6 +15,7 @@ function MetaMaskConnect() {
                 setAccount(accounts[0]);
                 const etherBalance = await web3.eth.getBalance(accounts[0]);
                 setBalance(web3.utils.fromWei(etherBalance, 'ether'));
+                setIsConnected(true);
             } catch (err) {
                 console.error(err);
             }
@@ -27,12 +29,13 @@ function MetaMaskConnect() {
     }, []);
 
     return (
+        isConnected?
         <div>
             <h2>MetaMask Wallet Information</h2>
             <p>Wallet Address: {account}</p>
             <p>Balance: {balance} ETH</p>
-            {/* Add additional information here */}
         </div>
+            :<p>MetaMask is not connected</p>
     );
 }
 
