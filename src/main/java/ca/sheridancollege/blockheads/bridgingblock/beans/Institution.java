@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -23,14 +25,14 @@ public class Institution {
     @Enumerated(EnumType.STRING)
     private InstitutionStatus status;
 
-
+    @JsonIgnore
     @OneToOne
     @JoinTable(name = "INSTITUTION_WALLET",
             joinColumns = @JoinColumn(name = "INSTITUTION_ID"),
             inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
     private Wallet wallet;
 
-
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "institutions")
     private List<Graduate> graduates;
 
