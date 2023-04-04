@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -26,14 +24,13 @@ public class Graduate {
     private String email;
     private Integer StudentID;
 
-    @JsonIgnore
     @OneToOne
     @JoinTable(name = "GRADUATE_WALLET",
             joinColumns = @JoinColumn(name = "GRADUATE_ID"),
             inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
     private Wallet wallet;
 
-    @JsonIgnore
+
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="INSTITUTIONS_GRADUATES",
             joinColumns=@JoinColumn(name="GRADUATE_ID"),
