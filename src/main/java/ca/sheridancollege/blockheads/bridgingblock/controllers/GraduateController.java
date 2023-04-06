@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/graduates")
+@CrossOrigin(origins = "http://localhost:3000")
 public class GraduateController {
     GraduateRepository graduateRepo;
 

@@ -11,6 +11,7 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/institutions")
+@CrossOrigin(origins = "http://localhost:3000")
 public class InstitutionController {
 
     InstitutionRepository institutionRepo;

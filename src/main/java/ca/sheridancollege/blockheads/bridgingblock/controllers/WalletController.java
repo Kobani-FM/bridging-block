@@ -11,6 +11,7 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/wallets")
+@CrossOrigin(origins = "http://localhost:3000")
 public class WalletController {
     WalletRepository walletRepo;
 
