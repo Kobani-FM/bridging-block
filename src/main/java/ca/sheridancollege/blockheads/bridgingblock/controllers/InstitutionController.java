@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/institutions")
+@RequestMapping("/api/institutions")
 public class InstitutionController {
 
     InstitutionRepository institutionRepo;

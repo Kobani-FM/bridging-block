@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/wallets")
+@RequestMapping("/api/wallets")
 public class WalletController {
     WalletRepository walletRepo;
 

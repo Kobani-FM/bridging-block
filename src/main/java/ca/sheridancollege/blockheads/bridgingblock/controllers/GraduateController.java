@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/graduates")
+@RequestMapping("/api/graduates")
 public class GraduateController {
     GraduateRepository graduateRepo;
 
