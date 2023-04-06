@@ -1,5 +1,6 @@
 package ca.sheridancollege.blockheads.bridgingblock.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +20,7 @@ public class Requester {
 
     private String name;
 
+    @JsonIgnore
     @OneToOne
     @JoinTable(name = "REQUESTER_WALLET",
             joinColumns = @JoinColumn(name = "REQUESTER_ID"),
