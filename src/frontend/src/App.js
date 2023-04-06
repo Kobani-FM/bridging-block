@@ -22,7 +22,9 @@ import Graduate from "./components/Graduate";
                  <Route path="/about" component={About} />
                  <Route path="/services" component={Services} />
                  <Route path="/contact" component={Contact} />
-                 <Route path="/create/graduate" component={Graduate} />
+                 <Route exact path="/create/graduate" component={Graduate} />
+                 {/*<Route exact path="/institution" component={Institution} />*/}
+                 {/*<Route exact path="/requester" component={Requester} />*/}
              </Switch>
          </BrowserRouter>
          // <div>
