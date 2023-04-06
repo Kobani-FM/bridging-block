@@ -2,14 +2,15 @@ package ca.sheridancollege.blockheads.bridgingblock.controllers;
 
 import ca.sheridancollege.blockheads.bridgingblock.beans.Institution;
 import ca.sheridancollege.blockheads.bridgingblock.repositories.InstitutionRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+@AllArgsConstructor
+@RequestMapping("/institutions")
 public class InstitutionController {
 
     InstitutionRepository institutionRepo;

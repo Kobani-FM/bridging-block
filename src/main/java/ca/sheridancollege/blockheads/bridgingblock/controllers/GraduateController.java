@@ -4,14 +4,15 @@ import ca.sheridancollege.blockheads.bridgingblock.beans.Graduate;
 import ca.sheridancollege.blockheads.bridgingblock.beans.Wallet;
 import ca.sheridancollege.blockheads.bridgingblock.repositories.GraduateRepository;
 import ca.sheridancollege.blockheads.bridgingblock.repositories.WalletRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+@AllArgsConstructor
+@RequestMapping("/graduates")
 public class GraduateController {
     GraduateRepository graduateRepo;
 
@@ -25,8 +26,8 @@ public class GraduateController {
     //Get - For a single graduate by id
     @GetMapping("/{id}")
     public Graduate getGraduate(@PathVariable Long id) {
-        Optional<Graduate> wallet = graduateRepo.findById(id);
-        if (wallet.isPresent()) {
+        Optional<Graduate> grad = graduateRepo.findById(id);
+        if (grad.isPresent()) {
             return graduateRepo.findById(id).get();
         } else {
             return null;
