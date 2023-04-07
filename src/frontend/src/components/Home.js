@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import {NavLink} from "react-bootstrap";
 
 function Home() {
     return (
@@ -11,8 +12,8 @@ function Home() {
                         <div className="card bg-dark text-white mb-4">
                             <div className="card-body">
                                 <h5 className="card-title">Graduate</h5>
-                                <p className="card-text">Create your graduation certificate.</p>
-                                <Link to="/create/graduate" className="btn btn-light">Get Started</Link>
+                                <p className="card-text">Create your credential wallet.</p>
+                                <NavLink href="/create" className="btn btn-danger" style={{width:'35%', padding:'8px'}}  >Get Started</NavLink>
                             </div>
                         </div>
                     </div>
@@ -21,7 +22,7 @@ function Home() {
                             <div className="card-body">
                                 <h5 className="card-title">Institution</h5>
                                 <p className="card-text">Verify your graduates' certificates.</p>
-                                <Link to="/institution" className="btn btn-light">Get Started</Link>
+                                <NavLink href="/institution" className="btn btn-danger" style={{width:'35%', padding:'8px'}}>Get Started</NavLink>
                             </div>
                         </div>
                     </div>
@@ -30,7 +31,7 @@ function Home() {
                             <div className="card-body">
                                 <h5 className="card-title">Requester</h5>
                                 <p className="card-text">Request verification of a certificate.</p>
-                                <Link to="/requester" className="btn btn-light">Get Started</Link>
+                                <NavLink href="/requester" className="btn btn-danger" style={{width:'35%', padding:'8px'}}>Get Started</NavLink>
                             </div>
                         </div>
                     </div>

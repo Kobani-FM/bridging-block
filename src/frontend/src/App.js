@@ -25,6 +25,8 @@ import Graduate from "./components/Graduate";
                  <Route exact path="/create/graduate" component={Graduate} />
                  {/*<Route exact path="/institution" component={Institution} />*/}
                  {/*<Route exact path="/requester" component={Requester} />*/}
+                 <Route exact path="/create" component={MetaMaskDetector} />
+                 {/*<Route exact path="/access/graduate" component={} />*/}
              </Switch>
          </BrowserRouter>
          // <div>

@@ -8,7 +8,7 @@ function Navigation() {
     };
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
-            <Navbar.Brand className="px-5" href="/">My Website</Navbar.Brand>
+            <Navbar.Brand className="px-5" href="/">Bridging Block</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar-nav" />
             <Navbar.Collapse id="navbar-nav">
                 <Nav className="ml-auto ms-auto me-5">

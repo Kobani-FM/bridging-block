@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
+import {Button, Card, NavLink} from "react-bootstrap";
 
 function MetaMaskConnect() {
     const [account, setAccount] = useState('');
@@ -36,16 +37,32 @@ function MetaMaskConnect() {
     }, []);
 
     return (
-        isConnected?
-        <div>
-            <h2>MetaMask Wallet Information</h2>
-            <ul>
-                <li>Wallet Address: <strong>{account}</strong></li><br/>
-                <li>Balance: <strong>{balance} ETH</strong></li>
-            </ul>
+        <div className="d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
+            <Card className="text-center">
+                <Card.Header>
+                    <h2>MetaMask Wallet Information</h2>
+                </Card.Header>
+                <Card.Body>
+                    {isConnected ? (
+                        <>
+                            <Card.Text>Wallet Address: <strong>{account}</strong></Card.Text>
+                            <Card.Text>Balance: <strong>{balance} ETH</strong></Card.Text>
+                            <div className="btn btn-outline-primary mx-3" style={{width:'35%', padding:'8px'}} >
+                            <NavLink href="/create/graduate"  >Create wallet</NavLink>
+                            </div>
+                            <div className="btn btn-outline-primary mx-3" style={{width:'35%', padding:'8px'}} >
+                                <NavLink href="/access/graduate"  >Access wallet</NavLink>
+                            </div>
+                        </>
+                    ) : (
+                        <p>MetaMask is not connected</p>
+                    )}
+                </Card.Body>
+            </Card>
         </div>
-            :<p>MetaMask is not connected</p>
     );
 }
 
 export default MetaMaskConnect;
+
+
