@@ -1,9 +1,7 @@
 package ca.sheridancollege.blockheads.bridgingblock.beans;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,11 +19,18 @@ public class Wallet {
     private Long id;
 
     private String address; //0x35dE11e7B59f0C48a44CdcEfF6CFe8dF1053f3a2
-    private Double balance;
+//    private Double balance;
 
-    public boolean isValidEthereumAddress(String _address) {
-        this.address = _address;
-        return WalletUtils.isValidAddress(address);
+    @JsonIgnore
+    @OneToOne
+    @JoinTable(name = "WALLET_GRADUATE",
+            joinColumns = @JoinColumn(name = "WALLET_ID"),
+            inverseJoinColumns = @JoinColumn(name = "GRADUATE_ID"))
+    private Graduate graduate;
+
+    @JsonIgnore
+    public boolean isValidEthereumAddress() {
+        return WalletUtils.isValidAddress(this.address);
     }
 
 

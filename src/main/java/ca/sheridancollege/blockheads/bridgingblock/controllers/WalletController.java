@@ -1,6 +1,8 @@
 package ca.sheridancollege.blockheads.bridgingblock.controllers;
 
+import ca.sheridancollege.blockheads.bridgingblock.beans.Graduate;
 import ca.sheridancollege.blockheads.bridgingblock.beans.Wallet;
+import ca.sheridancollege.blockheads.bridgingblock.repositories.GraduateRepository;
 import ca.sheridancollege.blockheads.bridgingblock.repositories.WalletRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +16,11 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:3000")
 public class WalletController {
     WalletRepository walletRepo;
+    GraduateRepository graduateRepo;
 
     //Get for all wallets(collection)
-    @GetMapping(value={"/",""})
-    public List<Wallet> getWalletCollection(){
+    @GetMapping(value = {"/", ""})
+    public List<Wallet> getWalletCollection() {
         return walletRepo.findAll();
     }
 
@@ -33,9 +36,17 @@ public class WalletController {
         }
 
     }
-    @PostMapping(value={"/",""},headers="content-type=application/json")
-    public void postWalletCollection(@RequestBody Wallet wallet){
+
+    @PostMapping(value = {"/", ""}, headers = "content-type=application/json")
+    public void postWalletCollection(@RequestBody Wallet wallet) {
         wallet.setId(null);
-        Wallet w = walletRepo.save(wallet);
+        if (wallet.isValidEthereumAddress()) {
+            //assign the graduate to the wallet
+            Optional<Graduate> grad = Optional.of(graduateRepo.findGraduateByAccountAddress(wallet.getAddress()));
+            if (grad.isPresent()) {
+                wallet.setGraduate(grad.get());
+            }
+            Wallet w = walletRepo.save(wallet);
+        }
     }
 }

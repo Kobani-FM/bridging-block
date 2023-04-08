@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GraduateRepository extends JpaRepository<Graduate, Long> {
+    Graduate findGraduateByAccountAddress(String address);
 }

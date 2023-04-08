@@ -24,14 +24,7 @@ public class Graduate {
     private String lastName;
     private String email;
     private Integer StudentID;
-
-    @JsonIgnore
-    @OneToOne
-    @JoinTable(name = "GRADUATE_WALLET",
-            joinColumns = @JoinColumn(name = "GRADUATE_ID"),
-            inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
-    private Wallet wallet;
-
+    private String accountAddress;
 
     @JsonIgnore
     @ManyToMany(fetch=FetchType.LAZY)
