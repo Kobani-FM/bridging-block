@@ -1,12 +1,13 @@
 import React from 'react';
 import GraduateForm from "./GraduateForm";
+import MetaMaskDetector from "./MetaMaskDetector";
 
 function Graduate() {
     return (
-        <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
-
-            <GraduateForm />
-        </div>
+        window.ethereum ?
+            <div className="container d-flex justify-content-center align-items-center" style={{minHeight: '80vh'}}>
+                <GraduateForm/>
+            </div> : <MetaMaskDetector/>
     );
 }
 
