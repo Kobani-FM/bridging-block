@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Builder
-public class Credential {
+public class Certificate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinTable(name="CREDENTIAL_WALLET_CREDENTIAL")
+    @JoinTable(name="CREDENTIAL_WALLET_CERTIFICATE")
     private CredentialWallet credentialWallet;
 }
