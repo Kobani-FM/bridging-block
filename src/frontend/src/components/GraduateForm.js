@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Form, Button, Card} from 'react-bootstrap';
+import {Form, Button, Card, NavLink} from 'react-bootstrap';
 import Web3 from "web3";
 
 function GraduateForm() {
@@ -70,19 +70,19 @@ function GraduateForm() {
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formFirstName">
                     <Form.Label>First Name</Form.Label>
-                    <Form.Control type="text" name="firstName" value={graduateData.firstName} onChange={handleInputChange} placeholder="Enter first name" />
+                    <Form.Control type="text" name="firstName" value={graduateData.firstName} onChange={handleInputChange} placeholder="Enter first name" required/>
                 </Form.Group>
                 <Form.Group controlId="formLastName">
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="text" name="lastName" value={graduateData.lastName} onChange={handleInputChange} placeholder="Enter last name" />
+                    <Form.Control type="text" name="lastName" value={graduateData.lastName} onChange={handleInputChange} placeholder="Enter last name" required/>
                 </Form.Group>
                 <Form.Group controlId="formEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" name="email" value={graduateData.email} onChange={handleInputChange} placeholder="Enter email" />
+                    <Form.Control type="email" name="email" value={graduateData.email} onChange={handleInputChange} placeholder="Enter email" required/>
                 </Form.Group>
                 <Form.Group controlId="formStudentID">
                     <Form.Label>Student ID</Form.Label>
-                    <Form.Control type="number" name="studentID" value={graduateData.studentID} onChange={handleInputChange} placeholder="Enter student ID" />
+                    <Form.Control type="number" name="studentID" value={graduateData.studentID} onChange={handleInputChange} placeholder="Enter student ID" required />
                 </Form.Group>
                 <Form.Group controlId="formAccountAddress">
                     <Form.Label>Associated Address</Form.Label>
