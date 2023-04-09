@@ -31,10 +31,15 @@ function MetaMaskCheck() {
                 isMetaMaskInstalled ? (
                     <MetaMaskConnect/>
                 ) : (
-                    <div>
-                        <p>MetaMask is not installed in your browser.</p>
-                        <button onClick={handleDownloadMetaMask}>Download MetaMask</button>
-                    </div>
+
+                        <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '80vh' }}>
+                            <h3>MetaMask is not installed in your browser.</h3>
+                            <div className="mt-3">
+                                <button className="btn btn-outline-primary mx-3" style={{ padding: '15px 20px' }} onClick={handleDownloadMetaMask}>Download MetaMask</button>
+                            </div>
+                        </div>
+
+
                 )
             ) : (
                 <p>Your browser is not supported.</p>
