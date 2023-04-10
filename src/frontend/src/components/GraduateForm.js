@@ -88,14 +88,6 @@ function GraduateForm() {
                     <Form.Label>Associated Address</Form.Label>
                     <Form.Control type="text" name="accountAddress" value={account}  disabled/>
                 </Form.Group>
-                {/*<Card className="mt-3">*/}
-                {/*    <Card.Body>*/}
-                {/*        <Card.Title>The associated address with this credential wallet</Card.Title>*/}
-                {/*        <Card.Text>*/}
-                {/*            {account}*/}
-                {/*        </Card.Text>*/}
-                {/*    </Card.Body>*/}
-                {/*</Card>*/}
                 <div className="text-center">
                     <Button variant="danger mt-5" type="submit">
                         Submit
