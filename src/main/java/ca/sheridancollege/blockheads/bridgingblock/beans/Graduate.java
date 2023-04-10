@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.web3j.crypto.WalletUtils;
 
 import java.util.List;
 
@@ -32,5 +33,11 @@ public class Graduate {
             joinColumns=@JoinColumn(name="GRADUATE_ID"),
             inverseJoinColumns=@JoinColumn(name="INSTITUTIONS_ID"))
     private List<Institution> institutions;
+
+
+    @JsonIgnore
+    public boolean isValidEthereumAddress() {
+        return WalletUtils.isValidAddress(this.accountAddress);
+    }
 
 }

@@ -36,25 +36,23 @@ public class GraduateController {
         } else {
             return null;
         }
-
-    }
-    @PostMapping(value={"/",""},headers="content-type=application/json")
-    public void postGraduateCollection(@RequestBody Graduate graduate){
-        graduate.setId(null);
-        graduateRepo.save(graduate);
     }
 
-//@PostMapping(value={"/",""}, headers="content-type=application/json")
-//public ResponseEntity<String> postGraduateCollection(@RequestBody Graduate graduate) {
-//    if(graduateRepo.findAll().contains(graduate)) {
-//        System.out.println("Graduate already exists");
-//        return ResponseEntity.badRequest().body("Graduate already exists");
-//    } else {
-//        graduate.setId(null);
-//        graduateRepo.save(graduate);
-//        System.out.println("Graduate saved successfully");
-//        return ResponseEntity.status(HttpStatus.CREATED).body("Graduate saved successfully");
-//    }
-//}
+
+    @PostMapping(value={"/",""})
+    public ResponseEntity<Graduate> createGraduate(@RequestBody Graduate graduate) {
+        if (!graduate.isValidEthereumAddress()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        String address = graduate.getAccountAddress();
+        Optional<Graduate> optionalGraduate = Optional.ofNullable(graduateRepo.findGraduateByAccountAddress(address));
+        if (optionalGraduate.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+
+        Graduate savedGraduate = graduateRepo.save(graduate);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedGraduate);
+    }
 
 }

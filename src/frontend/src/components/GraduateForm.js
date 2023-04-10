@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Form, Button, Card, NavLink} from 'react-bootstrap';
 import Web3 from "web3";
-
 function GraduateForm() {
     const [account, setAccount] = useState('');
     const [graduateData, setGraduateData] = useState({
@@ -59,11 +58,12 @@ function GraduateForm() {
         setGraduateData({ ...graduateData, accountAddress: account });
         //post graduate data
         postData("http://localhost:8080/api/graduates", graduateData, "Graduate");
-        //post the wallet address for this graduate
+        //post the wallet address
         postData("http://localhost:8080/api/wallets", {address:account}, "Wallet");
-
+        setTimeout(() => {
+            postData("http://localhost:8080/api/credential-wallets", {accountAddress:account}, "Credential Wallet")
+        }, 2000);
     };
-
     return (
         <div style={{ width: '50%' }}>
             <h2>Create a Credential Wallet</h2>

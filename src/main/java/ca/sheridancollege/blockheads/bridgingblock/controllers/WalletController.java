@@ -5,6 +5,8 @@ import ca.sheridancollege.blockheads.bridgingblock.beans.Wallet;
 import ca.sheridancollege.blockheads.bridgingblock.repositories.GraduateRepository;
 import ca.sheridancollege.blockheads.bridgingblock.repositories.WalletRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,15 +40,18 @@ public class WalletController {
     }
 
     @PostMapping(value = {"/", ""}, headers = "content-type=application/json")
-    public void postWalletCollection(@RequestBody Wallet wallet) {
-        wallet.setId(null);
-        if (wallet.isValidEthereumAddress()) {
-            //assign the graduate to the wallet
-            Optional<Graduate> grad = Optional.of(graduateRepo.findGraduateByAccountAddress(wallet.getAddress()));
-            if (grad.isPresent()) {
-                wallet.setGraduate(grad.get());
-            }
-            Wallet w = walletRepo.save(wallet);
+    public ResponseEntity<Wallet> createWallet(@RequestBody Wallet wallet) {
+        if (!wallet.isValidEthereumAddress()) {
+            return ResponseEntity.badRequest().build();
         }
+
+        String address = wallet.getAddress();
+        Optional<Wallet> optionalWallet = Optional.ofNullable(walletRepo.findWalletsByAddress(address));
+        if (optionalWallet.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+        Wallet savedWallet = walletRepo.save(wallet);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedWallet);
     }
+
 }
