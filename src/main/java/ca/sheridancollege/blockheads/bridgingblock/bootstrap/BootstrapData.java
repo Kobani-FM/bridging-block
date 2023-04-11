@@ -42,10 +42,12 @@ public class BootstrapData implements CommandLineRunner {
 		}
 		
 		//Adding test sample data to the database
-		List<Institution> list = new ArrayList<>();
+		List<Institution> emptyList = new ArrayList<>();
+		
+		//A real account address: 0xb0cc4447594a6B57528d948EAbD76a3BE3483cb9                    
 		Graduate g1 = Graduate.builder().firstName("Meow").lastName("Meow").email("meow@sheridancollege.ca")
-				.StudentID(999999999).accountAddress("0xb0cc4447594a6B57528d948EAbD76a3BE3483cb9")
-				.institutions(list).build();
+				.StudentID(999999999).accountAddress("AaAaAaAaAaAaAa01234AaAaAaAaAaAaAa22256789a")
+				.institutions(emptyList).build();
 		g1.getInstitutions().add(intsRepo.findInstitutionByName("Sheridan College"));
 		g1 = gradRepo.save(g1);
 		
