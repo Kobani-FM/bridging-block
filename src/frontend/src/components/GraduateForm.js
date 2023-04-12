@@ -42,22 +42,22 @@ function GraduateForm() {
                 const web3 = new Web3(window.ethereum);
                 const accounts = await web3.eth.getAccounts();
                 setAccount(accounts[0]);
-
+                setGraduateData({ ...graduateData, accountAddress: accounts[0] });
                 // Add event listener for changes to accounts array
                 window.ethereum.on('accountsChanged', async (newAccounts) => {
                     setAccount(newAccounts[0]);
+                    setGraduateData({ ...graduateData, accountAddress: accounts[0] });
                 });
     };
     useEffect(() => {
         getWalletAddress();
     }, []);
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        //add the selected address to accountAddress of the graduate
-        setGraduateData({ ...graduateData, accountAddress: account });
+
         //post graduate data
         postData("http://localhost:8080/api/graduates", graduateData, "Graduate");
+
         //post the wallet address
         postData("http://localhost:8080/api/wallets", {address:account}, "Wallet");
         setTimeout(() => {
