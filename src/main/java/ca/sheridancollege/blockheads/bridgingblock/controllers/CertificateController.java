@@ -50,7 +50,7 @@ public class CertificateController {
     @PostMapping(value = {"/", ""}, headers = "content-type=application/json")
     public ResponseEntity<Certificate> createCertificate(@RequestBody Certificate certificate) {
 
-    	certificate.setId(null);
+//    	certificate.setId(null);
 		
 		//Create link to credential wallet in database
 		String accountAddress = certificate.getAccountAddress();
@@ -62,4 +62,8 @@ public class CertificateController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCertificate);
     }
 
+    @GetMapping("/{accountAddress}")
+    public List<Certificate> getCertificatesByAccountAddress(@PathVariable String accountAddress) {
+        return certRepo.findCertificateByAccountAddress(accountAddress);
+    }
 }

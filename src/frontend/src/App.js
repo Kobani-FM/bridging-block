@@ -12,6 +12,7 @@ import { Route, Switch } from "react-router-dom";
 import React from "react";
 import Graduate from "./components/Graduate";
 import Institution from "./components/Institution";
+import CredentialWallet from "./components/CredentialWallet";
 
  const App = () =>
      (
@@ -23,11 +24,11 @@ import Institution from "./components/Institution";
                  <Route path="/about" component={About} />
                  <Route path="/services" component={Services} />
                  <Route path="/contact" component={Contact} />
-                 <Route exact path="/create/graduate" component={Graduate} />
+                 <Route exact path="/create/credential-wallet" component={Graduate} />
                  <Route exact path="/institution" component={Institution} />
                  {/*<Route exact path="/requester" component={Requester} />*/}
                  <Route exact path="/create" component={MetaMaskDetector} />
-                 {/*<Route exact path="/access/graduate" component={} />*/}
+                 <Route exact path="/access/credential-wallet" component={CredentialWallet} />
              </Switch>
          </BrowserRouter>
          // <div>
