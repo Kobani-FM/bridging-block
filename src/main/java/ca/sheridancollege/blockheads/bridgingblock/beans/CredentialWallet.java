@@ -26,14 +26,16 @@ public class CredentialWallet {
     private List<Certificate> certificates;
 
     @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL)
+    //@OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinTable(name = "CREDENTIAL_WALLET_WALLET",
             joinColumns = @JoinColumn(name = "CREDENTIAL_WALLET_ID"),
             inverseJoinColumns = @JoinColumn(name = "WALLET_ID"))
     private Wallet wallet;
 
     @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL)
+    //@OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinTable(name = "CREDENTIAL_WALLET_GRADUATE",
             joinColumns = @JoinColumn(name = "CREDENTIAL_WALLET_ID"),
             inverseJoinColumns = @JoinColumn(name = "GRADUATE_ID"))

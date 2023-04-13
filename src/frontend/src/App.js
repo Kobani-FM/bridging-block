@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import { Route, Switch } from "react-router-dom";
 import React from "react";
 import Graduate from "./components/Graduate";
+import Institution from "./components/Institution";
 
  const App = () =>
      (
@@ -23,7 +24,7 @@ import Graduate from "./components/Graduate";
                  <Route path="/services" component={Services} />
                  <Route path="/contact" component={Contact} />
                  <Route exact path="/create/graduate" component={Graduate} />
-                 {/*<Route exact path="/institution" component={Institution} />*/}
+                 <Route exact path="/institution" component={Institution} />
                  {/*<Route exact path="/requester" component={Requester} />*/}
                  <Route exact path="/create" component={MetaMaskDetector} />
                  {/*<Route exact path="/access/graduate" component={} />*/}
