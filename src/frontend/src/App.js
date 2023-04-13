@@ -23,11 +23,11 @@ import Institution from "./components/Institution";
                  <Route path="/about" component={About} />
                  <Route path="/services" component={Services} />
                  <Route path="/contact" component={Contact} />
-                 <Route exact path="/create/graduate" component={Graduate} />
+                 <Route exact path="/create/credential-wallet" component={Graduate} />
                  <Route exact path="/institution" component={Institution} />
                  {/*<Route exact path="/requester" component={Requester} />*/}
                  <Route exact path="/create" component={MetaMaskDetector} />
-                 {/*<Route exact path="/access/graduate" component={} />*/}
+                 {/*<Route exact path="/access/credential-wallet" component={} />*/}
              </Switch>
          </BrowserRouter>
          // <div>
