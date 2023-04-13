@@ -7,7 +7,6 @@ function GraduateForm() {
         firstName: "",
         lastName: "",
         email: "",
-        studentID: null,
         accountAddress:""
     });
 
@@ -79,10 +78,6 @@ function GraduateForm() {
                 <Form.Group controlId="formEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" name="email" value={graduateData.email} onChange={handleInputChange} placeholder="Enter email" required/>
-                </Form.Group>
-                <Form.Group controlId="formStudentID">
-                    <Form.Label>Student ID</Form.Label>
-                    <Form.Control type="number" name="studentID" value={graduateData.studentID} onChange={handleInputChange} placeholder="Enter student ID" required />
                 </Form.Group>
                 <Form.Group controlId="formAccountAddress">
                     <Form.Label>Associated Address</Form.Label>
