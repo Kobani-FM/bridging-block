@@ -21,6 +21,7 @@ public class CredentialWallet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String accountAddress;
+    
     @JsonIgnore
     @OneToMany(fetch=FetchType.LAZY, mappedBy = "credentialWallet", cascade = CascadeType.ALL)
     private List<Certificate> certificates;
