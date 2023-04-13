@@ -33,9 +33,9 @@ public class CredentialWalletController {
     // POST method to create a new CredentialWallet
     @PostMapping(value = {"/", ""})
     public ResponseEntity<CredentialWallet> createCredentialWallet(@RequestBody CredentialWallet credentialWallet) {
-//        if (!credentialWallet.isValidEthereumAddress()) {
-//            return ResponseEntity.badRequest().build();
-//        }
+        if (!credentialWallet.isValidEthereumAddress()) {
+            return ResponseEntity.badRequest().build();
+        }
 
         String address = credentialWallet.getAccountAddress();
         Optional<Graduate> optionalGraduate = Optional.ofNullable(graduateRepo.findGraduateByAccountAddress(address));
