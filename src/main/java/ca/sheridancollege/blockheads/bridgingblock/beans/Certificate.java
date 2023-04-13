@@ -15,6 +15,14 @@ public class Certificate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    private String name;
+    private String institution;
+    private Integer studentID;
+    private Integer yearIssued;
+    private Double gpa;
+    //The credential wallet that this certificate is added to
+    private String accountAddress;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinTable(name="CREDENTIAL_WALLET_CERTIFICATE")

@@ -31,7 +31,6 @@ function Institution() {
 		          <th>First Name</th>
 		          <th>Last Name</th>
 		          <th>Email</th>
-		          <th>Student ID</th>
 		          <th>Wallet Address</th>
 		        </tr>
       		</thead>
@@ -42,7 +41,6 @@ function Institution() {
 		              <td>{graduate.firstName}</td>
 		              <td>{graduate.lastName}</td>
 		              <td>{graduate.email}</td>
-		              <td>{graduate.studentID}</td>
 		              <td>{graduate.accountAddress}</td>
 		            </tr>
 				))}

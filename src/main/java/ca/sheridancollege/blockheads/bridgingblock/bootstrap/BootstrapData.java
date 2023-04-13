@@ -46,7 +46,7 @@ public class BootstrapData implements CommandLineRunner {
 		
 		//A real account address: 0xb0cc4447594a6B57528d948EAbD76a3BE3483cb9                    
 		Graduate g1 = Graduate.builder().firstName("Meow").lastName("Meow").email("meow@sheridancollege.ca")
-				.StudentID(999999999).accountAddress("AaAaAaAaAaAaAa01234AaAaAaAaAaAaAa22256789a")
+				.accountAddress("AaAaAaAaAaAaAa01234AaAaAaAaAaAaAa22256789a")
 				.institutions(emptyList).build();
 		g1.getInstitutions().add(intsRepo.findInstitutionByName("Sheridan College"));
 		g1 = gradRepo.save(g1);
@@ -59,7 +59,7 @@ public class BootstrapData implements CommandLineRunner {
 		
 		emptyList.clear();
 		Graduate g2 = Graduate.builder().firstName("Woof").lastName("Woof").email("woof@humbercollege.ca")
-				.StudentID(111111111).accountAddress("BbBbBbBbBbBbBb98765111BbBbBbBbBbBbBb4321dD")
+				.accountAddress("BbBbBbBbBbBbBb98765111BbBbBbBbBbBbBb4321dD")
 				.institutions(emptyList).build();
 		g2.getInstitutions().add(intsRepo.findInstitutionByName("Humber College"));
 		g2 = gradRepo.save(g2);
@@ -72,7 +72,7 @@ public class BootstrapData implements CommandLineRunner {
 		
 		emptyList.clear();
 		Graduate g3 = Graduate.builder().firstName("Bob").lastName("Builder").email("bobthebuilder@gmail.com")
-				.StudentID(555555555).accountAddress("02f23j0ogh2JHAFo2309hokh94u0t2gjokB9024hgi")
+				.accountAddress("02f23j0ogh2JHAFo2309hokh94u0t2gjokB9024hgi")
 				.institutions(emptyList).build();
 		g3.getInstitutions().add(intsRepo.findInstitutionByName("Sheridan College"));
 		g3.getInstitutions().add(intsRepo.findInstitutionByName("Seneca College"));
