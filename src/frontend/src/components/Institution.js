@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
 import './Institution.css';
+import NavigationInsitution from './NavbarInstitution';
 
 function Institution() {
 	
-	const [graduates, setGraduates] = useState([])
+	/*const [graduates, setGraduates] = useState([])
 
   	const fetchData = () => {
 	    fetch("http://localhost:8080/api/graduates")
@@ -18,11 +19,12 @@ function Institution() {
 	
  	useEffect(() => {
     	fetchData()
-  	}, [])
+  	}, [])*/
 	
  	return (
+		 <NavigationInsitution/>
 	    //<div style={{ marginTop: '50px' }}>
-	    <div>
+	    /*<div>
 	      <h2>View Graduates</h2>	
 	      <Table striped bordered hover>
 	      	<thead>
@@ -46,7 +48,7 @@ function Institution() {
 				))}
 	      	</tbody>
 	      </Table>
-    	</div>
+    	</div>*/
   	)
 }
 
