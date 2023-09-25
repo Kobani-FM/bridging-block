@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="studentScript.js"></script>
+    <title>Bridging Blocks</title>
+</head>
+<body>
+    <h1>Student Info</h1>
+    <form name="student" action="">
+        Name: <input type="text" name="full-name" id="name">
+        <br><br>
+        Age: <input type="text" name="age" id="age">
+        <br><br>
+        Student ID: <input type="text" name="studID" id="studID">
+        <br><br>
+        <input type="radio" name="type" id="type1" value="fulltime">Full-Time Student
+        <br><br>
+        <input type="radio" name="type" id="type2" value="parttime">Part-Time Student
+        <br><br>
+
+        <!-- Change this to user input and collects course data into a local or session storage -->
+        Select Courses: <input type="checkbox" name="course" value="web1"> Web Fundamental
+                        <input type="checkbox" name="course" value="web2"> Web Programming
+        <br><br>
+        Semester:
+        <select name="semester" id="semester">
+            <option value="fall">Fall</option>
+            <option value="winter">Winter</option>
+            <option value="summer">Summer</option>
+        </select>
+        <br><br>
+        Additional Comments:
+        <br><br>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <br><br>
+        <input type="button" name="show1" value="ShowName" id="b1">
+        <input type="button" name="show2" value="ShowAge" id="b2">
+        <input type="button" name="show3" value="ShowStatus" id="b3">
+        <input type="button" name="show4" value="ShowID" id="b4">
+    </form>
+
+</body>
+</html>
