@@ -1,6 +1,7 @@
 package ca.sheridancollege.blockheads.bridgingblock.beans;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,9 @@ public class Graduate {
             inverseJoinColumns=@JoinColumn(name="INSTITUTIONS_ID"))
     private List<Institution> institutions;
 
+  	@OneToMany(fetch=FetchType.LAZY, mappedBy="graduate")
+  	private List<CertificateRequest> certificateRequests;
+    
 
     @JsonIgnore
     public boolean isValidEthereumAddress() {

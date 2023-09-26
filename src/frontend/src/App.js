@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import { Route, Switch } from "react-router-dom";
 import React from "react";
 import Graduate from "./components/Graduate";
+import CredentialRequestForm from "./components/GraduateRequestCredentialForm";
 import Institution from "./components/Institution";
 import InstitutionViewStudent from "./components/InstitutionViewStudent";
 import InstitutionViewRequest from "./components/InstitutionViewRequest";
@@ -29,6 +30,7 @@ import CredentialWallet from "./components/CredentialWallet";
                  <Route path="/services" component={Services} />
                  <Route path="/contact" component={Contact} />
                  <Route exact path="/create/credential-wallet" component={Graduate} />
+                 <Route exact path="/graduate/create-credential-request" component={CredentialRequestForm} />
                  <Route exact path="/institution" component={Institution} />
                  <Route exact path="/institution/view-students" component={InstitutionViewStudent} />
                  <Route exact path="/institution/view-credential-requests" component={InstitutionViewRequest} />

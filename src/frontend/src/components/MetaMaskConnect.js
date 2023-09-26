@@ -47,11 +47,14 @@ function MetaMaskConnect() {
                         <>
                             <Card.Text>Wallet Address: <strong>{account}</strong></Card.Text>
                             <Card.Text>Balance: <strong>{balance} ETH</strong></Card.Text>
-                            <div className="btn btn-outline-primary mx-3" style={{width:'35%', padding:'8px'}} >
-                            <NavLink href="/create/credential-wallet"  >Create wallet</NavLink>
+                            <div className="btn btn-outline-primary mx-3" style={{width:'25%', padding:'8px'}} >
+                            	<NavLink href="/create/credential-wallet"  >Create wallet</NavLink>
                             </div>
-                            <div className="btn btn-outline-primary mx-3" style={{width:'35%', padding:'8px'}} >
+                            <div className="btn btn-outline-primary mx-3" style={{width:'25%', padding:'8px'}} >
                                 <NavLink href="/access/credential-wallet"  >Access wallet</NavLink>
+                            </div>
+                            <div className="btn btn-outline-primary mx-3" style={{width:'30%', padding:'8px'}} >
+                                <NavLink href="/graduate/create-credential-request"  >Request credential</NavLink>
                             </div>
                         </>
                     ) : (

@@ -28,14 +28,14 @@ public class CertificateController {
 	CertificateRepository certRepo;
 	CredentialWalletRepository credentialWalletRepo;
 
-    //Get for all graduates(collection)
+    //Get for all certificates(collection)
     @GetMapping(value={"/",""})
     public List<Certificate> getCertificateCollection(){
         return certRepo.findAll();
     }
 
 
-    //Get - For a single graduate by id
+    //Get - For a single certificate by id
     @GetMapping("/{id}")
     public Certificate getCertificate(@PathVariable Long id) {
         Optional<Certificate> cert = certRepo.findById(id);
