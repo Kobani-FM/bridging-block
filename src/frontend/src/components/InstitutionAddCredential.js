@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import './Institution.css';
+import './TableView.css';
 import NavigationInsitution from './NavbarInstitution';
-import './NavbarInstitution.css';
+import './Navbar.css';
 
 function InstitutionAddCredential() {
 	

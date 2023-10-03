@@ -3,6 +3,8 @@ package ca.sheridancollege.blockheads.bridgingblock.beans;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +33,8 @@ public class CertificateRequest {
     private Integer studentId;
     private Integer graduationYear;
     private String program;
+    @Enumerated(EnumType.STRING)
+    private CertificateRequestStatus status;
 
     //The credential wallet that the graduate wants to add the certificate to
     private String accountAddress;

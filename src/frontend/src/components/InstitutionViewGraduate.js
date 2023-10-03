@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
-import './Institution.css';
+import './TableView.css';
 import NavigationInsitution from './NavbarInstitution';
-import './NavbarInstitution.css';
+import './Navbar.css';
 
-function InstitutionViewStudent() {
+function InstitutionViewGraduate() {
 	
 	const [graduates, setGraduates] = useState([])
 
@@ -59,4 +59,4 @@ function InstitutionViewStudent() {
   	)
 }
 
-export default InstitutionViewStudent;
+export default InstitutionViewGraduate;

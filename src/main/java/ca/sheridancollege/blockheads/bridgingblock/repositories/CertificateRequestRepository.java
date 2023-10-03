@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface CertificateRequestRepository extends JpaRepository<CertificateRequest, Long> {
-    List<CertificateRequest> findCertificateRequestByAccountAddress(String address);
+    List<CertificateRequest> findCertificatesRequestByAccountAddress(String address);
 }
 

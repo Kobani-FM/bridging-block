@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Form, Button, Card, NavLink} from 'react-bootstrap';
 import Web3 from "web3";
+import NavigationGraduate from './NavbarGraduate';
+import './Navbar.css';
 function GraduateRequestCredentialForm() {
 	
     const [credentialRequest, setCredentialRequestData] = useState({
@@ -10,7 +12,7 @@ function GraduateRequestCredentialForm() {
         studentId: "",
         graduationYear: "",
         program: "",
-        accountAddress:""
+        accountAddress: ""
     });
 
     const handleInputChange = (event) => {
@@ -78,49 +80,59 @@ function GraduateRequestCredentialForm() {
 
         //post credential request information
         postData("http://localhost:8080/api/certificate-requests", credentialRequest, "Credential Request");
+        
+        window.location.reload(false);
 
     };
     return (
-		<div className="container d-flex justify-content-center align-items-center" style={{minHeight: '80vh'}}>
-	        <div style={{ width: '50%' }}>
-	            <h2>Request a Credential</h2>
-	            <Form onSubmit={handleSubmit}>
-	                <Form.Group controlId="formFirstName">
-	                    <Form.Label>First Name</Form.Label>
-	                    <Form.Control type="text" name="firstName" value={credentialRequest.firstName} disabled/>
-	                </Form.Group>
-	                <Form.Group controlId="formLastName">
-	                    <Form.Label>Last Name</Form.Label>
-	                    <Form.Control type="text" name="lastName" value={credentialRequest.lastName} disabled/>
-	                </Form.Group>
-	                <Form.Group controlId="formInstitution">
-	                    <Form.Label>Institution</Form.Label>
-	                    <Form.Control type="text" name="institution" value={credentialRequest.institution} onChange={handleInputChange} placeholder="Enter institution" required/>
-	                </Form.Group>
-	                <Form.Group controlId="formStudentId">
-	                    <Form.Label>Student ID</Form.Label>
-	                    <Form.Control type="number" name="studentId" value={credentialRequest.studentId} onChange={handleInputChange} placeholder="Enter student ID" required/>
-	                </Form.Group>
-	                <Form.Group controlId="formGraduationYear">
-	                    <Form.Label>Certificate Graduation Year</Form.Label>
-	                    <Form.Control type="number" name="graduationYear" value={credentialRequest.graduationYear} onChange={handleInputChange} placeholder="Enter graduation year" required/>
-	                </Form.Group>
-	                <Form.Group controlId="formProgram">
-	                    <Form.Label>Certificate Program</Form.Label>
-	                    <Form.Control type="text" name="program" value={credentialRequest.program} onChange={handleInputChange} placeholder="Enter program" required/>
-	                </Form.Group>
-	                <Form.Group controlId="formAccountAddress">
-	                    <Form.Label>Associated Address</Form.Label>
-	                    <Form.Control type="text" name="accountAddress" value={credentialRequest.accountAddress}  disabled/>
-	                </Form.Group>
-	                <div className="text-center">
-	                    <Button variant="danger mt-5" type="submit">
-	                        Submit
-	                    </Button>
-	                </div>
-	            </Form>
-	        </div>
-        </div>
+		<div>
+			<div className="container-fluid">
+				<div className="row flex-nowrap">
+					<NavigationGraduate/>
+					<div className="container d-flex justify-content-center align-items-center" style={{minHeight: '80vh', width: '75%' }}>
+				        <div style={{ width: '50%' }}>
+				            <h2>Request a Credential</h2>
+				            <Form onSubmit={handleSubmit}>
+				                <Form.Group controlId="formFirstName">
+				                    <Form.Label>First Name</Form.Label>
+				                    <Form.Control type="text" name="firstName" value={credentialRequest.firstName} disabled/>
+				                </Form.Group>
+				                <Form.Group controlId="formLastName">
+				                    <Form.Label>Last Name</Form.Label>
+				                    <Form.Control type="text" name="lastName" value={credentialRequest.lastName} disabled/>
+				                </Form.Group>
+				                <Form.Group controlId="formInstitution">
+				                    <Form.Label>Institution</Form.Label>
+				                    <Form.Control type="text" name="institution" value={credentialRequest.institution} onChange={handleInputChange} placeholder="Enter institution" required/>
+				                </Form.Group>
+				                <Form.Group controlId="formStudentId">
+				                    <Form.Label>Student ID</Form.Label>
+				                    <Form.Control type="number" name="studentId" value={credentialRequest.studentId} onChange={handleInputChange} placeholder="Enter student ID" required/>
+				                </Form.Group>
+				                <Form.Group controlId="formGraduationYear">
+				                    <Form.Label>Certificate Graduation Year</Form.Label>
+				                    <Form.Control type="number" name="graduationYear" value={credentialRequest.graduationYear} onChange={handleInputChange} placeholder="Enter graduation year" required/>
+				                </Form.Group>
+				                <Form.Group controlId="formProgram">
+				                    <Form.Label>Certificate Program</Form.Label>
+				                    <Form.Control type="text" name="program" value={credentialRequest.program} onChange={handleInputChange} placeholder="Enter program" required/>
+				                </Form.Group>
+				                <Form.Group controlId="formAccountAddress">
+				                    <Form.Label>Associated Address</Form.Label>
+				                    <Form.Control type="text" name="accountAddress" value={credentialRequest.accountAddress}  disabled/>
+				                </Form.Group>
+				                <div className="text-center">
+				                    <Button variant="danger mt-5" type="submit">
+				                        Submit
+				                    </Button>
+				                </div>
+				            </Form>
+				            <br></br>
+				        </div>
+			        </div>
+        		</div>
+			</div>
+		</div>
     );
 }
 

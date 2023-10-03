@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-bootstrap";
 import {Table} from 'react-bootstrap';
-import './Institution.css';
+import './TableView.css';
 import NavigationInsitution from './NavbarInstitution';
-import './NavbarInstitution.css';
+import './Navbar.css';
 
 function InstitutionViewRequest() {
 	
@@ -18,10 +18,38 @@ function InstitutionViewRequest() {
 	        setCertificateRequests(data)
 	      })
 	  }
+	  
+	function patchData(url, dataName) {
+        fetch(url, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ status: 'REJECTED' })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                console.log(` ${dataName} was rejected successfully!`);
+            })
+            .catch(error => {
+                console.error(`There was a problem editing the ${dataName} data:`, error);
+            });
+    }
 	
  	useEffect(() => {
     	fetchData()
   	}, [])
+  	
+  	const rejectRequest = requestId => event => {
+        event.preventDefault();
+
+        //change the status of the credential request to rejected 
+        patchData("http://localhost:8080/api/certificate-requests/" + requestId, "Certificate Request");
+        
+        window.location.reload(false);
+    };
 	
  	return (
 		//<div style={{ marginTop: '50px' }}>
@@ -46,8 +74,9 @@ function InstitutionViewRequest() {
 								</tr>
 							</thead>
 							<tbody>
-								{certificateRequests.map(certificateRequest => (
-									<tr certificateRequest={certificateRequest}>
+								{certificateRequests.map((certificateRequest) => 
+									certificateRequest.status === "PENDING" ? (
+										<tr certificateRequest={certificateRequest}>
 										<td>{certificateRequest.id}</td>
 										<td>{certificateRequest.firstName}</td>
 										<td>{certificateRequest.lastName}</td>
@@ -55,10 +84,14 @@ function InstitutionViewRequest() {
 										<td>{certificateRequest.studentId}</td>
 										<td>{certificateRequest.graduationYear}</td>
 										<td>{certificateRequest.program}</td>
-										<td><NavLink href="#" className="btn btn-success">Approve</NavLink></td>
-										<td><NavLink href="#" className="btn btn-danger">Deny</NavLink></td>
-									</tr>
-								))}
+										<td><NavLink href="#" className="btn btn-success btnRequest">
+											Approve</NavLink></td>
+										<td><NavLink href="href=/institution/view-credential-requests" 
+											className="btn btn-danger btnRequest" onClick={rejectRequest(certificateRequest.id)}>
+											Reject</NavLink></td>
+										</tr>
+									) : null
+								)}
 							</tbody>
 						</Table>	
 					</div>
