@@ -10,7 +10,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import React from "react";
 import Graduate from "./components/Graduate";
 import CredentialRequestForm from "./components/GraduateRequestCredentialForm";
@@ -24,7 +24,7 @@ import CredentialWallet from "./components/CredentialWallet";
  const App = () =>
      (
 
-         <BrowserRouter>
+         <React.StrictMode>
              <Navigation />
              <Switch>
                  <Route exact path="/" component={Home} />
@@ -37,12 +37,12 @@ import CredentialWallet from "./components/CredentialWallet";
                  <Route exact path="/institution" component={Institution} />
                  <Route exact path="/institution/view-graduates" component={InstitutionViewGraduate} />
                  <Route exact path="/institution/view-credential-requests" component={InstitutionViewRequest} />
-                 <Route exact path="/institution/add-credential" component={InstitutionAddCredential} />
+                 <Route exact path="/institution/add-credential" component={withRouter(InstitutionAddCredential)} />
                  {/*<Route exact path="/requester" component={Requester} />*/}
                  <Route exact path="/create" component={MetaMaskDetector} />
                  <Route exact path="/access/credential-wallet" component={CredentialWallet} />
              </Switch>
-         </BrowserRouter>
+         </React.StrictMode>
          // <div>
          //     <h1>Status of MetaMask on this browser</h1>
          //     <MetaMaskDetector/>

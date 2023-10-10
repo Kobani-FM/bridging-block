@@ -18,11 +18,6 @@ function NavigationInstitution() {
         					<span className="ms-3 d-none d-sm-inline">Requests</span>
         				</a>
         			</li>
-        			<li class="nav-item text-white fs-4 my-1">
-        				<a href="/institution/add-credential" class="nav-link text-white fs-6" aria-current="page">
-        					<span className="ms-3 d-none d-sm-inline">Add Credentials</span>
-        				</a>
-        			</li>
         		</ul>
     		</div>
     	</div>

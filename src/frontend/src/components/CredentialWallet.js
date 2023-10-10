@@ -24,7 +24,13 @@ function CredentialWallet() {
                     <Col key={certificate.studentID}>
                         <Card>
                             <Card.Body>
-                                <Card.Title>{certificate.name}</Card.Title>
+                                <Card.Title>{certificate.program}</Card.Title>
+                                <Card.Text>
+                                    <strong>Name: </strong>
+                                    {certificate.firstName}
+                                    <span> </span>
+                                    {certificate.lastName}
+                                </Card.Text>
                                 <Card.Text>
                                     <strong>Institution: </strong>
                                     {certificate.institution}

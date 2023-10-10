@@ -5,6 +5,24 @@ import NavigationGraduate from './NavbarGraduate';
 import './Navbar.css';
 function GraduateRequestCredentialForm() {
 	
+	let graduationYears = [];
+	const currentYear = new Date().getFullYear();
+    for (let i = 1970; i <= currentYear; i++){
+		graduationYears.push(<option value={i} key={i}>{i}</option>)
+    }
+    
+    const [institutions, setInstitutions] = useState([])
+
+  	const fetchInstitutionsData = () => {
+	    fetch("http://localhost:8080/api/institutions")
+	      .then(response => {
+	        return response.json()
+	      })
+	      .then(data => {
+	        setInstitutions(data)
+	      })
+	  }
+    
     const [credentialRequest, setCredentialRequestData] = useState({
         firstName: "",
         lastName: "",
@@ -73,6 +91,7 @@ function GraduateRequestCredentialForm() {
     
     useEffect(() => {
         getGraduateData();
+        fetchInstitutionsData();
     }, []);
     
     const handleSubmit = (event) => {
@@ -103,7 +122,12 @@ function GraduateRequestCredentialForm() {
 				                </Form.Group>
 				                <Form.Group controlId="formInstitution">
 				                    <Form.Label>Institution</Form.Label>
-				                    <Form.Control type="text" name="institution" value={credentialRequest.institution} onChange={handleInputChange} placeholder="Enter institution" required/>
+				                    <Form.Select name="institution" value={credentialRequest.institution} onChange={handleInputChange} required>
+				                    	<option>Select an institution</option>
+				                    	{institutions.map(institution => (
+											<option value={institution.name} key={institution.name}>{institution.name}</option>
+										))}
+								    </Form.Select>
 				                </Form.Group>
 				                <Form.Group controlId="formStudentId">
 				                    <Form.Label>Student ID</Form.Label>
@@ -111,7 +135,10 @@ function GraduateRequestCredentialForm() {
 				                </Form.Group>
 				                <Form.Group controlId="formGraduationYear">
 				                    <Form.Label>Certificate Graduation Year</Form.Label>
-				                    <Form.Control type="number" name="graduationYear" value={credentialRequest.graduationYear} onChange={handleInputChange} placeholder="Enter graduation year" required/>
+				                    <Form.Select name="graduationYear" value={credentialRequest.graduationYear} onChange={handleInputChange} required>
+				                    	<option>Select a graduation year</option>
+				                    	{graduationYears}
+								    </Form.Select>
 				                </Form.Group>
 				                <Form.Group controlId="formProgram">
 				                    <Form.Label>Certificate Program</Form.Label>

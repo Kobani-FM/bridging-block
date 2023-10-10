@@ -17,7 +17,9 @@ public class Certificate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private String name;
+    private String firstName;
+    private String lastName;
+    private String program;
     private String institution;
     private Integer studentID;
     private Integer yearIssued;

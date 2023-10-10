@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink} from "react-bootstrap";
+import {Link} from 'react-router-dom';
+import {NavLink} from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
 import './TableView.css';
 import NavigationInsitution from './NavbarInstitution';
@@ -84,9 +85,13 @@ function InstitutionViewRequest() {
 										<td>{certificateRequest.studentId}</td>
 										<td>{certificateRequest.graduationYear}</td>
 										<td>{certificateRequest.program}</td>
-										<td><NavLink href="#" className="btn btn-success btnRequest">
-											Approve</NavLink></td>
-										<td><NavLink href="href=/institution/view-credential-requests" 
+										<td><Link to={{
+      											pathname: "/institution/add-credential",
+      											state: {id: certificateRequest.id}
+    											}} className="btn btn-success btnRequest">
+											Approve</Link>
+										</td>
+										<td><NavLink href="/institution/view-credential-requests" 
 											className="btn btn-danger btnRequest" onClick={rejectRequest(certificateRequest.id)}>
 											Reject</NavLink></td>
 										</tr>
