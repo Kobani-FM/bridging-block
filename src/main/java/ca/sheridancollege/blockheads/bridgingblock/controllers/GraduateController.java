@@ -37,6 +37,17 @@ public class GraduateController {
             return null;
         }
     }
+    
+  //Get - For a single graduate by their account address
+    @GetMapping("/account-address/{address}")
+    public Graduate getGraduateByAddress(@PathVariable String address) {
+        Optional<Graduate> grad = Optional.ofNullable(graduateRepo.findGraduateByAccountAddress(address));
+        if (grad.isPresent()) {
+            return graduateRepo.findGraduateByAccountAddress(address);
+        } else {
+        	return null;
+        }
+    }
 
 
     @PostMapping(value={"/",""})

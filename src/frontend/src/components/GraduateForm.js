@@ -62,6 +62,8 @@ function GraduateForm() {
         setTimeout(() => {
             postData("http://localhost:8080/api/credential-wallets", {accountAddress:account}, "Credential Wallet")
         }, 2000);
+        
+        window.location.reload(false);
     };
     return (
         <div style={{ width: '50%' }}>

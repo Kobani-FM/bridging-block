@@ -82,7 +82,9 @@ public class BootstrapData implements CommandLineRunner {
 
 
 		Certificate certificate1 = Certificate.builder()
-				.name("Engineering Ethics and Professional Practice")
+				.firstName("Lionel")
+				.lastName("Messi")
+				.program("Engineering Ethics and Professional Practice")
 				.institution("Sheridan College")
 				.studentID(12345)
 				.yearIssued(2022)
@@ -91,7 +93,9 @@ public class BootstrapData implements CommandLineRunner {
 				.build();
 
 		Certificate certificate2 = Certificate.builder()
-				.name("Project Manager")
+				.firstName("Wayne")
+				.lastName("Gretzky")
+				.program("Project Manager")
 				.institution("Humber College")
 				.studentID(67890)
 				.yearIssued(2021)
@@ -100,7 +104,9 @@ public class BootstrapData implements CommandLineRunner {
 				.build();
 
 		Certificate certificate3 = Certificate.builder()
-				.name("Environmental Engineering")
+				.firstName("Captain")
+				.lastName("Planet")
+				.program("Environmental Engineering")
 				.institution("George Brown College")
 				.studentID(24680)
 				.yearIssued(2020)
@@ -109,7 +115,9 @@ public class BootstrapData implements CommandLineRunner {
 				.build();
 
 		Certificate certificate4 = Certificate.builder()
-				.name("Civil Engineering")
+				.firstName("Bob")
+				.lastName("The Builder")
+				.program("Civil Engineering")
 				.institution("Seneca College")
 				.studentID(97531)
 				.yearIssued(2019)
