@@ -1,16 +1,10 @@
 import './App.css';
 import MetaMaskDetectorStudent from "./components/graduate/MetaMaskDetectorStudent";
-import MetaMaskConnectInstitution from "./components/instituation/MetaMaskConnectInstituation";
 import Navigation from "./components/navbar/Navbar";
-import NavigationGraduate from "./components/navbar/NavbarGraduate";
-import NavigationInstitution from "./components/navbar/NavbarInstitution";
 import Home from "./components/Home";
-import { BrowserRouter  } from 'react-router-dom';
-// import { Switch } from 'react-switch'
 import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
-
 import { Route, Switch, withRouter } from "react-router-dom";
 import React from "react";
 import Graduate from "./components/graduate/Graduate";
@@ -21,7 +15,7 @@ import InstitutionViewGraduate from "./components/instituation/InstitutionViewGr
 import InstitutionViewRequest from "./components/instituation/InstitutionViewRequest";
 import InstitutionAddCredential from "./components/instituation/InstitutionAddCredential";
 import CredentialWallet from "./components/graduate/CredentialWallet";
-import MetaMaskDetectorInstituation from "./components/instituation/MetaMaskDetectorInstituation";
+import MetaMaskDetectorInstitution from "./components/instituation/MetaMaskDetectorInstitution";
 
  const App = () =>
      (
@@ -42,7 +36,7 @@ import MetaMaskDetectorInstituation from "./components/instituation/MetaMaskDete
                  <Route exact path="/institution/add-credential" component={withRouter(InstitutionAddCredential)} />
                  {/*<Route exact path="/requester" component={Requester} />*/}
                  <Route exact path="/grad-meta-wallet" component={MetaMaskDetectorStudent} />
-                 <Route exact path="/ins-meta-wallet" component={MetaMaskConnectInstitution} />
+                 <Route exact path="/ins-meta-wallet" component={MetaMaskDetectorInstitution} />
                  <Route exact path="/access/credential-wallet" component={CredentialWallet} />
                  {/*<Route exact path="/ins-meta-wallet/ins-register" component={}/>*/}
                  <Route exact path="/ins-meta-wallet/ins-profile" component={Institution}/>

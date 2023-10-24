@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MetaMaskConnectInstituation from "./MetaMaskConnectInstituation";
+import MetaMaskConnectInstituation from "./MetaMaskConnectInstitution";
 
 function MetaMaskCheck() {
     const [isSupportedBrowser, setIsSupportedBrowser] = useState(false);
