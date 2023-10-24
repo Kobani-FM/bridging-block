@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {NavLink} from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
-import './TableView.css';
-import NavigationInsitution from './NavbarInstitution';
-import './Navbar.css';
+import '../TableView.css';
+import NavigationInsitution from '../navbar/NavbarInstitution';
+import '../navbar/Navbar.css';
 
 function InstitutionViewRequest() {
 	

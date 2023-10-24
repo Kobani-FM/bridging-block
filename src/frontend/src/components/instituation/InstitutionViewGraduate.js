@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
-import './TableView.css';
-import NavigationInsitution from './NavbarInstitution';
-import './Navbar.css';
+import '../TableView.css';
+import NavigationInsitution from '../navbar/NavbarInstitution';
+import '../navbar/Navbar.css';
 
 function InstitutionViewGraduate() {
 	
@@ -28,7 +28,7 @@ function InstitutionViewGraduate() {
 			<div className="container-fluid">
 				<div className="row flex-nowrap">
 					<NavigationInsitution/>
-					<div class="col py-3">
+					<div className="col py-3">
 						<h2>View Graduates</h2>	
 						<Table striped bordered hover>
 							<thead>

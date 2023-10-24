@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
-import './TableView.css';
-import NavigationGraduate from './NavbarGraduate';
-import './Navbar.css';
+import '../TableView.css';
+import NavigationGraduate from '../navbar/NavbarGraduate';
+import '../navbar/Navbar.css';
 import Web3 from "web3";
 
 function GraduateViewRequest() {
@@ -35,7 +35,7 @@ function GraduateViewRequest() {
 			<div className="container-fluid">
 				<div className="row flex-nowrap">
 					<NavigationGraduate/>
-					<div class="col py-3">
+					<div className="col py-3">
 						<h2>View Credential Requests</h2>
 						<Table striped bordered hover>
 							<thead>
