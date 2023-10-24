@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import {Button, Card, NavLink} from "react-bootstrap";
+import { Card, NavLink } from "react-bootstrap";
 
-function MetaMaskConnect() {
+function MetaMaskConnectStudent() {
     const [account, setAccount] = useState('');
     const [balance, setBalance] = useState('');
     const [isConnected, setIsConnected] = useState(false);
@@ -66,6 +66,6 @@ function MetaMaskConnect() {
     );
 }
 
-export default MetaMaskConnect;
+export default MetaMaskConnectStudent;
 
 

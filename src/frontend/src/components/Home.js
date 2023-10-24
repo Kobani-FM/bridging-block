@@ -13,7 +13,7 @@ function Home() {
                             <div className="card-body">
                                 <h5 className="card-title">Graduate</h5>
                                 <p className="card-text">Create your credential wallet.</p>
-                                <NavLink href="/create" className="btn btn-danger" style={{width:'35%', padding:'8px'}}  >Get Started</NavLink>
+                                <NavLink href="/grad-meta-wallet" className="btn btn-danger" style={{width:'35%', padding:'8px'}}  >Get Started</NavLink>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@ function Home() {
                             <div className="card-body">
                                 <h5 className="card-title">Institution</h5>
                                 <p className="card-text">Verify your graduates' certificates.</p>
-                                <NavLink href="/institution" className="btn btn-danger" style={{width:'35%', padding:'8px'}}>Get Started</NavLink>
+                                <NavLink href="/ins-meta-wallet" className="btn btn-danger" style={{width:'35%', padding:'8px'}}>Get Started</NavLink>
                             </div>
                         </div>
                     </div>

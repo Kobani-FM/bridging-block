@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {Table} from 'react-bootstrap';
-import './TableView.css';
-import NavigationInsitution from './NavbarInstitution';
+
+import '../TableView.css';
+import NavigationInsitution from '../navbar/NavbarInstitution';
 
 function Institution() {
 	

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import {Button, Card, NavLink} from "react-bootstrap";
+import { Card, NavLink} from "react-bootstrap";
 
 function MetaMaskConnectStudent() {
     const [account, setAccount] = useState('');
@@ -48,13 +48,13 @@ function MetaMaskConnectStudent() {
                             <Card.Text>Wallet Address: <strong>{account}</strong></Card.Text>
                             <Card.Text>Balance: <strong>{balance} ETH</strong></Card.Text>
                             <div className="btn btn-outline-primary mx-3" style={{width:'23%', padding:'8px'}} >
-                            	<NavLink href="/create/credential-wallet"  >Create wallet</NavLink>
+                            	<NavLink href="ins-meta-wallet/ins-register"  >Register</NavLink>
                             </div>
                             <div className="btn btn-outline-primary mx-3" style={{width:'23%', padding:'8px'}} >
-                                <NavLink href="/access/credential-wallet"  >Access wallet</NavLink>
+                                <NavLink href="ins-meta-wallet/ins-profile"  >Show Profile</NavLink>
                             </div>
                             <div className="btn btn-outline-primary mx-3" style={{width:'33%', padding:'8px'}} >
-                                <NavLink href="/graduate/create-credential-request"  >Credential Requests</NavLink>
+                                <NavLink href="/ins-meta-wallet/view-credential-requests"  >Credential Requests</NavLink>
                             </div>
                         </>
                     ) : (

@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useHistory} from 'react-router-dom';
-import {Form, Button, Card, NavLink} from 'react-bootstrap';
-import Web3 from "web3";
-import NavigationInsitution from './NavbarInstitution';
-import './Navbar.css';
+import {Form, Button } from 'react-bootstrap';
+
+import NavigationInsitution from '../navbar/NavbarInstitution';
+import '../navbar/Navbar.css';
 
 function InstitutionAddCredential() {
 	

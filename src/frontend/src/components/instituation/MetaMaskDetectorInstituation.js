@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import MetaMaskConnectStudent from './MetaMaskConnectStudent';
+import MetaMaskConnectInstituation from "./MetaMaskConnectInstituation";
+
 function MetaMaskCheck() {
     const [isSupportedBrowser, setIsSupportedBrowser] = useState(false);
     const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
@@ -29,7 +30,7 @@ function MetaMaskCheck() {
         <div>
             {isSupportedBrowser ? (
                 isMetaMaskInstalled ? (
-                    <MetaMaskConnectStudent/>
+                    <MetaMaskConnectInstituation/>
                 ) : (
 
                         <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: '80vh' }}>

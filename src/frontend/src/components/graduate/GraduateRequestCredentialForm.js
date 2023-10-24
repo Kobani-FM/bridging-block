@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Form, Button, Card, NavLink} from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 import Web3 from "web3";
-import NavigationGraduate from './NavbarGraduate';
-import './Navbar.css';
+import NavigationGraduate from '../navbar/NavbarGraduate';
+import '../navbar/Navbar.css';
 function GraduateRequestCredentialForm() {
 	
 	let graduationYears = [];
