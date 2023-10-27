@@ -97,7 +97,7 @@ function InstitutionAddCredential() {
         postData("http://localhost:8080/api/certificates", credential, "Credential");
         
         history.push("/institution/view-credential-requests");
-
+		window.location.reload();
     };
 	
  	return (

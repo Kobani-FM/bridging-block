@@ -9,8 +9,9 @@ import { BrowserRouter  } from 'react-router-dom';
 import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
+import Login from "./components/Login";
 
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import React from "react";
 import Graduate from "./components/Graduate";
 import CredentialRequestForm from "./components/GraduateRequestCredentialForm";
@@ -31,6 +32,9 @@ import CredentialWallet from "./components/CredentialWallet";
                  <Route path="/about" component={About} />
                  <Route path="/services" component={Services} />
                  <Route path="/contact" component={Contact} />
+                 <Route exact path="/login">
+  					{localStorage.getItem("user") ? <Redirect to="/institution/view-graduates" /> : <Route path="/login" component={Login} />}
+				 </Route>
                  <Route exact path="/create/credential-wallet" component={Graduate} />
                  <Route exact path="/graduate/create-credential-request" component={CredentialRequestForm} />
                  <Route exact path="/graduate/view-credential-requests" component={GraduateViewCredentialRequest} />

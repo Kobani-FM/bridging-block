@@ -8,7 +8,13 @@ import './Navbar.css';
 
 function InstitutionViewRequest() {
 	
+	const [userRoles, setUserRoles] = useState([])
 	const [certificateRequests, setCertificateRequests] = useState([])
+	
+	const fetchUserRoles = () => {
+		let user = JSON.parse(localStorage.getItem("user"));
+		setUserRoles(user.roles)
+	}
 
   	const fetchData = () => {
 	    fetch("http://localhost:8080/api/certificate-requests")
@@ -41,6 +47,7 @@ function InstitutionViewRequest() {
 	
  	useEffect(() => {
     	fetchData()
+    	fetchUserRoles()
   	}, [])
   	
   	const rejectRequest = requestId => event => {
@@ -63,7 +70,6 @@ function InstitutionViewRequest() {
 						<Table striped bordered hover>
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>First Name</th>
 									<th>Last Name</th>
 									<th>Institution</th>
@@ -76,9 +82,10 @@ function InstitutionViewRequest() {
 							</thead>
 							<tbody>
 								{certificateRequests.map((certificateRequest) => 
-									certificateRequest.status === "PENDING" ? (
+									certificateRequest.status === "PENDING" && 
+									userRoles.includes(((certificateRequest.institution).toUpperCase()).replace(/ /g, "_")) 
+									? (
 										<tr certificateRequest={certificateRequest}>
-										<td>{certificateRequest.id}</td>
 										<td>{certificateRequest.firstName}</td>
 										<td>{certificateRequest.lastName}</td>
 										<td>{certificateRequest.institution}</td>

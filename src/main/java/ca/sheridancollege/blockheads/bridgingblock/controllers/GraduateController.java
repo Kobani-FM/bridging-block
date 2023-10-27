@@ -26,7 +26,6 @@ public class GraduateController {
         return graduateRepo.findAll();
     }
 
-
     //Get - For a single graduate by id
     @GetMapping("/{id}")
     public Graduate getGraduate(@PathVariable Long id) {

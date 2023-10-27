@@ -114,11 +114,11 @@ function GraduateRequestCredentialForm() {
 				            <Form onSubmit={handleSubmit}>
 				                <Form.Group controlId="formFirstName">
 				                    <Form.Label>First Name</Form.Label>
-				                    <Form.Control type="text" name="firstName" value={credentialRequest.firstName} disabled/>
+				                    <Form.Control type="text" name="firstName" value={credentialRequest.firstName} disabled required/>
 				                </Form.Group>
 				                <Form.Group controlId="formLastName">
 				                    <Form.Label>Last Name</Form.Label>
-				                    <Form.Control type="text" name="lastName" value={credentialRequest.lastName} disabled/>
+				                    <Form.Control type="text" name="lastName" value={credentialRequest.lastName} disabled required/>
 				                </Form.Group>
 				                <Form.Group controlId="formInstitution">
 				                    <Form.Label>Institution</Form.Label>
@@ -146,7 +146,7 @@ function GraduateRequestCredentialForm() {
 				                </Form.Group>
 				                <Form.Group controlId="formAccountAddress">
 				                    <Form.Label>Associated Address</Form.Label>
-				                    <Form.Control type="text" name="accountAddress" value={credentialRequest.accountAddress}  disabled/>
+				                    <Form.Control type="text" name="accountAddress" value={credentialRequest.accountAddress}  disabled required/>
 				                </Form.Group>
 				                <div className="text-center">
 				                    <Button variant="danger mt-5" type="submit">
