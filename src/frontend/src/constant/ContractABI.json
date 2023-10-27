@@ -1,0 +1,498 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "studentAddress",
+        "type": "address"
+      }
+    ],
+    "name": "CredentialDeleted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "studentAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "studentName",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CredentialGenerated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      }
+    ],
+    "name": "InstitutionRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
+      }
+    ],
+    "name": "InstitutionUnregistered",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "contractOwner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "studentAddress",
+        "type": "address"
+      }
+    ],
+    "name": "deleteCredential",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "studentAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "studentName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "studentID",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "degreeName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "major",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "graduationDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "GPA",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "transcript",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "issuerSignature",
+        "type": "bytes32"
+      }
+    ],
+    "name": "generateCredential",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllRegisteredInstitutionNames",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "studentAddress",
+        "type": "address"
+      }
+    ],
+    "name": "getCredential",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "studentName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "studentID",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "degreeName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "major",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "graduationDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "GPA",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "transcript",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "issuerSignature",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "studentName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "studentID",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getCredentialByStudentNameAndID",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
+      }
+    ],
+    "name": "getInstitution",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "bool",
+        "name": "isRegistered",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalRegisteredInstitutions",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "institutionAddresses",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "institutions",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "bool",
+        "name": "isRegistered",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "studentAddress",
+        "type": "address"
+      }
+    ],
+    "name": "isCredentialGenerated",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
+      }
+    ],
+    "name": "isInstitutionRegistered",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "studentAddress",
+        "type": "address"
+      }
+    ],
+    "name": "isStudentRegistered",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "institutionName",
+        "type": "string"
+      }
+    ],
+    "name": "registerInstitution",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "studentCredentials",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "studentName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "studentID",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "degreeName",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "major",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "graduationDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "GPA",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "transcript",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "issuerSignature",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
+      }
+    ],
+    "name": "unregisterInstitution",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
