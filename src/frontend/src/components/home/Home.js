@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavLink} from "react-bootstrap";
-import GetAllRegisteredInstitutionNames from "./GetAllRegisteredInstitutionNames";
 
 function Home() {
     return (
@@ -39,7 +38,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <GetAllRegisteredInstitutionNames/>
         </div>
     );
 }
