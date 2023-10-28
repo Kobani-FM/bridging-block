@@ -51,10 +51,10 @@ function MetaMaskConnect({ isStudent }) {
                                 <NavLink href={isStudent ? "/create/credential-wallet" : "ins-meta-wallet/ins-register"} >{isStudent ? "Create wallet" : "Register"}</NavLink>
                             </div>
                             <div className="btn btn-outline-primary mx-3" style={{ width: '23%', padding: '8px' }}>
-                                <NavLink href={isStudent ? "/access/credential-wallet" : "ins-meta-wallet/ins-profile"} >{isStudent ? "Access wallet" : "Show Profile"}</NavLink>
+                                <NavLink href={isStudent ? "/access/credential-wallet" : "/login1"} >{isStudent ? "Access wallet" : "Show Profile"}</NavLink>
                             </div>
                             <div className="btn btn-outline-primary mx-3" style={{ width: '33%', padding: '8px' }}>
-                                <NavLink href={isStudent ? "/graduate/create-credential-request" : "/ins-meta-wallet/view-credential-requests"} >Credential Requests</NavLink>
+                                <NavLink href={isStudent ? "/graduate/create-credential-request" : "/login2"} >Credential Requests</NavLink>
                             </div>
                         </>
                     ) : (

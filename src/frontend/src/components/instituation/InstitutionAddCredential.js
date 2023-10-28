@@ -96,8 +96,8 @@ function InstitutionAddCredential() {
         //post a new certificate
         postData("http://localhost:8080/api/certificates", credential, "Credential");
         
-        history.push("/institution/view-credential-requests");
-
+        history.push("/ins-meta-wallet/view-credential-requests");
+		window.location.reload();
     };
 	
  	return (

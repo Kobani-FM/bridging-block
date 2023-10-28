@@ -20,6 +20,8 @@ public class BootstrapData implements CommandLineRunner {
 	private WalletRepository walletRepo;
 	private CredentialWalletRepository credRepo;
 	private CertificateRepository certificateRepo;
+	private UserRepository userRepo;
+	private RoleRepository roleRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -129,7 +131,51 @@ public class BootstrapData implements CommandLineRunner {
 		certificateRepo.save(certificate2);
 		certificateRepo.save(certificate3);
 		certificateRepo.save(certificate4);
-
+		
+		Role role1 = Role.builder().name("SENECA_COLLEGE").build();
+		Role role2 = Role.builder().name("HUMBER_COLLEGE").build();
+		Role role3 = Role.builder().name("CENTENNIAL_COLLEGE").build();
+		Role role4 = Role.builder().name("GEORGE_BROWN_COLLEGE").build();
+		Role role5 = Role.builder().name("SHERIDAN_COLLEGE").build();
+		
+		roleRepo.save(role1);
+		roleRepo.save(role2);
+		roleRepo.save(role3);
+		roleRepo.save(role4);
+		roleRepo.save(role5);
+		
+		List<Role> institutionRoles = new ArrayList<Role>();
+		
+		institutionRoles.clear();
+		institutionRoles.add(role5);
+		User user1 = User.builder().username("SheridanCollege").email("sc@sheridancollege.ca")
+		.password("$2a$12$ibHLVkZw32H3gRObM9VX4OGJreQNkKEupQuH8LwgnHwVzRl4mgCI6").roles(institutionRoles).build();
+		userRepo.save(user1);
+		
+		institutionRoles.clear();
+		institutionRoles.add(role1);
+		User user2 = User.builder().username("SenecaCollege").email("sc@senecacollege.ca")
+		.password("$2a$12$ibHLVkZw32H3gRObM9VX4OGJreQNkKEupQuH8LwgnHwVzRl4mgCI6").roles(institutionRoles).build();
+		userRepo.save(user2);
+		
+		institutionRoles.clear();
+		institutionRoles.add(role2);
+		User user3 = User.builder().username("HumberCollege").email("hc@humbercollege.ca")
+		.password("$2a$12$ibHLVkZw32H3gRObM9VX4OGJreQNkKEupQuH8LwgnHwVzRl4mgCI6").roles(institutionRoles).build();
+		userRepo.save(user3);
+		
+		institutionRoles.clear();
+		institutionRoles.add(role3);
+		User user4 = User.builder().username("CentennialCollege").email("cc@centennialcollege.ca")
+		.password("$2a$12$ibHLVkZw32H3gRObM9VX4OGJreQNkKEupQuH8LwgnHwVzRl4mgCI6").roles(institutionRoles).build();
+		userRepo.save(user4);
+		
+		institutionRoles.clear();
+		institutionRoles.add(role4);
+		User user5 = User.builder().username("GeorgeBrownCollege").email("gbc@georgebrowncollege.ca")
+		.password("$2a$12$ibHLVkZw32H3gRObM9VX4OGJreQNkKEupQuH8LwgnHwVzRl4mgCI6").roles(institutionRoles).build();
+		userRepo.save(user5);
+		 
 
 	}
 }

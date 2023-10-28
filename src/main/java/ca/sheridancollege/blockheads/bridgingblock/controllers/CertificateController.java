@@ -62,7 +62,7 @@ public class CertificateController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCertificate);
     }
 
-    @GetMapping("/{accountAddress}")
+    @GetMapping("/account/{accountAddress}")
     public List<Certificate> getCertificatesByAccountAddress(@PathVariable String accountAddress) {
         return certRepo.findCertificateByAccountAddress(accountAddress);
     }

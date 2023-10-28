@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Col, Row } from 'react-bootstrap';
+import Web3 from "web3";
 
 function CredentialWallet() {
     const [certificates, setCertificates] = useState([]);
@@ -8,7 +9,11 @@ function CredentialWallet() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get('http://localhost:8080/api/certificates');
+				await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const web3 = new Web3(window.ethereum);
+                const accounts = await web3.eth.getAccounts();
+                const address = accounts[0];
+                const response = await axios.get('http://localhost:8080/api/certificates/account/' + address);
                 setCertificates(response.data);
             } catch (error) {
                 console.error(error);
