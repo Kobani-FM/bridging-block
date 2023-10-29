@@ -1,5 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthService from "../../services/AuthService";
+
+const logOut = () => {
+    AuthService.logout();
+  };
 
 function NavigationInstitution() {
     return (
@@ -15,6 +20,11 @@ function NavigationInstitution() {
         				<a href="/ins-meta-wallet/view-credential-requests" className="nav-link text-white fs-6" aria-current="page">
         					<span className="ms-3 d-none d-sm-inline">View Credential</span><br></br>
         					<span className="ms-3 d-none d-sm-inline">Requests</span>
+        				</a>
+        			</li>
+        			<li class="nav-item text-white fs-4 my-1">
+        				<a href="/ins-meta-wallet" class="nav-link text-white fs-6" aria-current="page" onClick={logOut}>
+        					<span className="ms-3 d-none d-sm-inline">Logout</span><br></br>
         				</a>
         			</li>
         		</ul>

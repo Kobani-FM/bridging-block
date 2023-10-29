@@ -24,6 +24,12 @@ function GraduateViewRequest() {
 	        setCertificateRequests(data)
 	      })
 	  }
+	  
+	const setRowColour = (status) => {
+    	if (status === "PENDING") return '#CCCC00';
+    	if (status === "APPROVED") return 'green';
+    	return 'red';
+	};
 	
  	useEffect(() => {
     	fetchData()
@@ -60,7 +66,9 @@ function GraduateViewRequest() {
 										<td>{certificateRequest.studentId}</td>
 										<td>{certificateRequest.graduationYear}</td>
 										<td>{certificateRequest.program}</td>
-										<td>{certificateRequest.status}</td>
+										<td style={{ color: setRowColour(certificateRequest.status) }}>
+											{certificateRequest.status}
+										</td>
 									</tr>
 								))}
 							</tbody>
