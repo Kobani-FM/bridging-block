@@ -28,9 +28,9 @@
       },
       {
         "indexed": false,
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "studentName",
-        "type": "bytes32"
+        "type": "string"
       }
     ],
     "name": "CredentialGenerated",
@@ -69,6 +69,19 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
+      }
+    ],
+    "name": "approveRequestIssue",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "contractOwner",
     "outputs": [
@@ -79,6 +92,19 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "institutionName",
+        "type": "string"
+      }
+    ],
+    "name": "createRequestIssue",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -97,29 +123,53 @@
   {
     "inputs": [
       {
+        "internalType": "string",
+        "name": "studentName",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "studentID",
+        "type": "uint256"
+      }
+    ],
+    "name": "findStudentByStudentNameAndID",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address",
         "name": "studentAddress",
         "type": "address"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "studentName",
-        "type": "bytes32"
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "studentID",
-        "type": "bytes32"
+        "type": "uint256"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "degreeName",
-        "type": "bytes32"
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "major",
-        "type": "bytes32"
+        "type": "string"
       },
       {
         "internalType": "uint256",
@@ -127,19 +177,9 @@
         "type": "uint256"
       },
       {
-        "internalType": "bytes32",
-        "name": "GPA",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "transcript",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "issuerSignature",
-        "type": "bytes32"
+        "internalType": "uint256",
+        "name": "gpa",
+        "type": "uint256"
       }
     ],
     "name": "generateCredential",
@@ -171,44 +211,39 @@
     "name": "getCredential",
     "outputs": [
       {
-        "internalType": "bytes32",
-        "name": "studentName",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "studentID",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "degreeName",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "major",
-        "type": "bytes32"
+        "internalType": "string",
+        "name": "",
+        "type": "string"
       },
       {
         "internalType": "uint256",
-        "name": "graduationDate",
+        "name": "",
         "type": "uint256"
       },
       {
-        "internalType": "bytes32",
-        "name": "GPA",
-        "type": "bytes32"
+        "internalType": "string",
+        "name": "",
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
-        "name": "transcript",
-        "type": "bytes32"
+        "internalType": "string",
+        "name": "",
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
-        "name": "issuerSignature",
-        "type": "bytes32"
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -217,37 +252,22 @@
   {
     "inputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "studentName",
-        "type": "bytes32"
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "studentID",
-        "type": "bytes32"
+        "type": "uint256"
       }
     ],
     "name": "getCredentialByStudentNameAndID",
     "outputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
+        "type": "string"
       },
       {
         "internalType": "uint256",
@@ -255,19 +275,29 @@
         "type": "uint256"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "",
-        "type": "bytes32"
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "",
-        "type": "bytes32"
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "",
-        "type": "bytes32"
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -298,8 +328,40 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      }
+    ],
+    "name": "getInstitutionAddressByName",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "getTotalRegisteredInstitutions",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalRegisteredStudents",
     "outputs": [
       {
         "internalType": "uint256",
@@ -416,16 +478,54 @@
         "internalType": "address",
         "name": "institutionAddress",
         "type": "address"
-      },
+      }
+    ],
+    "name": "rejectRequestIssue",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "requestIssueMap",
+    "outputs": [
       {
         "internalType": "string",
         "name": "institutionName",
         "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "institutionAddress",
+        "type": "address"
       }
     ],
-    "name": "registerInstitution",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "studentAddresses",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -439,24 +539,24 @@
     "name": "studentCredentials",
     "outputs": [
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "studentName",
-        "type": "bytes32"
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "uint256",
         "name": "studentID",
-        "type": "bytes32"
+        "type": "uint256"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "degreeName",
-        "type": "bytes32"
+        "type": "string"
       },
       {
-        "internalType": "bytes32",
+        "internalType": "string",
         "name": "major",
-        "type": "bytes32"
+        "type": "string"
       },
       {
         "internalType": "uint256",
@@ -464,19 +564,14 @@
         "type": "uint256"
       },
       {
-        "internalType": "bytes32",
-        "name": "GPA",
-        "type": "bytes32"
+        "internalType": "uint256",
+        "name": "gpa",
+        "type": "uint256"
       },
       {
-        "internalType": "bytes32",
-        "name": "transcript",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "issuerSignature",
-        "type": "bytes32"
+        "internalType": "address",
+        "name": "issuerAddress",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
