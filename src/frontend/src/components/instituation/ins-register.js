@@ -6,6 +6,7 @@ import { contractAddress } from '../../constant/config';
 function RegisterInstitution() {
     const [institutionName, setInstitutionName] = useState('');
     const [userAddress, setUserAddress] = useState('');
+    const [txURL, setTxURL] = useState("");
 
     useEffect(() => {
         if (typeof window.ethereum !== 'undefined') {
@@ -24,11 +25,10 @@ function RegisterInstitution() {
         const contractInstance = SmartContractInteraction.getContractInstance(ContactABI, contractAddress);
 
         try {
-            const tx = await contractInstance.methods.issuerRequest(
-                userAddress,
+            const tx = await contractInstance.methods.createRequestIssue(
                 institutionName
             ).send({ from: userAddress });
-
+            setTxURL(`https://sepolia.etherscan.io/tx/${tx.transactionHash}`)
             console.log('Transaction Hash:', tx.transactionHash);
         } catch (error) {
             console.error('Error registering institution:', error);
@@ -65,6 +65,8 @@ function RegisterInstitution() {
                             <button type="button" className="btn btn-primary" onClick={handleRegister}>
                                 Register
                             </button>
+                            <br/>
+                            {txURL ? <a href={txURL}>Transaction URL</a> : null}
                         </div>
                     </form>
                 </div>
