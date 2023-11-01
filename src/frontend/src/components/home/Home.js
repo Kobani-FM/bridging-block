@@ -31,7 +31,7 @@ function Home() {
                                 <div className="card-body">
                                     <h5 className="card-title">Requester</h5>
                                     <p className="card-text">Request verification of a certificate.</p>
-                                    <NavLink href="/requester" className="btn btn-danger" style={{width:'35%', padding:'8px'}}>Get Started</NavLink>
+                                    <NavLink href="/requester/access-credential" className="btn btn-danger" style={{width:'35%', padding:'8px'}}>Get Started</NavLink>
                                 </div>
                             </div>
                         </div>

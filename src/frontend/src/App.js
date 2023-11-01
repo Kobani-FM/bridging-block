@@ -19,6 +19,8 @@ import InstitutionAddCredential from "./components/instituation/InstitutionAddCr
 import CredentialWallet from "./components/graduate/CredentialWallet";
 import MetaMaskDetectorInstitution from "./components/instituation/MetaMaskDetectorInstitution";
 import RegisterInstitution from "./components/instituation/ins-register";
+import RequesterAccess from "./components/requester/RequesterAccess";
+import RequesterViewCredential from "./components/requester/RequesterViewCredential";
 
  const App = () =>
      (
@@ -51,6 +53,8 @@ import RegisterInstitution from "./components/instituation/ins-register";
                  <Route exact path="/ins-meta-wallet/ins-profile" component={Institution}/>
                  <Route exact path="/ins-meta-wallet/view-credential-requests" component={InstitutionViewRequest} />
                  {/*<Route exact path="/ins-meta-wallet/show-credential-request" component={}/>*/}
+                 <Route exact path="/requester/access-credential" component={RequesterAccess} />
+                 <Route exact path="/requester/view-credential" component={RequesterViewCredential} />
              </Switch>
          </React.StrictMode>
 
