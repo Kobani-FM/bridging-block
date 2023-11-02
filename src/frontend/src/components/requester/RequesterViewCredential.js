@@ -2,23 +2,25 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Col, Row } from 'react-bootstrap';
 import Web3 from "web3";
+import {useLocation, useHistory} from 'react-router-dom';
 
 function RequesterViewCredential() {
+	
     const [certificates, setCertificates] = useState([]);
-
-    /*useEffect(() => {
+    const location = useLocation();
+    
+    useEffect(() => {
         async function fetchData() {
             try {
-				//Access key from the RequesterAccess page will be passed to this function?
 				//Address that was tied to the access key entered on the RequesterAccess page is passed here
-                const response = await axios.get('http://localhost:8080/api/certificates/account/' + address);
+                const response = await axios.get('http://localhost:8080/api/certificates/account/' + location.state.address);
                 setCertificates(response.data);
             } catch (error) {
                 console.error(error);
             }
         }
         fetchData();
-    }, []);*/
+    }, []);
 
     return (
         <Row>
