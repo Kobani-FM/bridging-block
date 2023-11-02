@@ -51,8 +51,8 @@ function RequesterAccess() {
 				            <br></br>
 				            <Form onSubmit={handleSubmit}>
 				                <Form.Group controlId="formAddress">
-				                    <Form.Label>Enter the access received from graduate</Form.Label>
-				                    <Form.Control type="text" name="address" value={wallet.address} onChange={handleInputChange} placeholder="Enter access key" required/>
+				                    <Form.Label>Enter the address received from graduate</Form.Label>
+				                    <Form.Control type="text" name="address" value={wallet.address} onChange={handleInputChange} placeholder="Enter address" required/>
 				                </Form.Group>
 				                <div className="text-center">
 				                    <Button variant="danger mt-5" type="submit">
