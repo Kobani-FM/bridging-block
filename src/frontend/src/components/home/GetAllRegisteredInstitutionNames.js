@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SmartContractInteraction from '../contract/SmartContractInteraction'; // Import the component you created
+import SmartContractInteraction from '../contract/SmartContractInteraction'; 
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import ContractABI from '../../constant/ContractABI.json';
 import {contractAddress} from '../../constant/config';
